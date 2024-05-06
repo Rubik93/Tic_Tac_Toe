@@ -9,7 +9,6 @@ class KryziukaiNuliukai:
         for eile in [self.lenta[i*3:(i+1)*3] for i in range(3)]:
             print('| ' + ' | '.join(eile) + ' |')
 
-    @staticmethod
     def spausdinti_lentos_numerius():
         numeriu_lenta = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for eile in numeriu_lenta:
