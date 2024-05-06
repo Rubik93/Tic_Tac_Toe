@@ -1,4 +1,4 @@
-# Bandomasis: Tic Tac Toe zaidimas...
+Bandomasis:
 
 class KryziukaiNuliukai:
     def __init__(self):
@@ -9,6 +9,7 @@ class KryziukaiNuliukai:
         for eile in [self.lenta[i*3:(i+1)*3] for i in range(3)]:
             print('| ' + ' | '.join(eile) + ' |')
 
+    @staticmethod
     def spausdinti_lentos_numerius():
         numeriu_lenta = [[str(i) for i in range(j*3, (j+1)*3)] for j in range(3)]
         for eile in numeriu_lenta:
@@ -46,7 +47,6 @@ class KryziukaiNuliukai:
     def prieinami_langeliai(self):
         return [i for i, vieta in enumerate(self.lenta) if vieta == ' ']
 
-
 def zaidimo_eiga():
     zaidimas = KryziukaiNuliukai()
     X_zaidejas = 'X'
@@ -78,7 +78,24 @@ def zaidimo_eiga():
 
     if not zaidimas.dabartinis_laimetojas:
         print("Lygiosios!")
+        baigti_zaidima()
 
+def pradeti_zaidima():
+    pasirinkimas = input("Ar norite pradeti žaidima? Spauskite '1' jei taip, arba bet koki kita klavisa jei ne, spauskite 0: ")
+    if pasirinkimas == '1':
+        zaidimo_eiga()
+    elif pasirinkimas == '0':
+        print("Žaidimas nepradėtas.")
+    else:
+        print("Netinkamas pasirinkimas.")
+
+def baigti_zaidima():
+    pasirinkimas = input("Ar norite baigti zaidima? Spauskite '0' jei taip, arba bet koki klavisa, jei norite testi: ")
+    if pasirinkimas == '0':
+        print("Zaidimas baigtas.")
+        exit()
+    else:
+        zaidimo_eiga()
 
 if __name__ == '__main__':
-    zaidimo_eiga()
+    pradeti_zaidima()
