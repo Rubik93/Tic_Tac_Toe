@@ -1,4 +1,4 @@
-# Bandomasis
+print("Sveiki atvyke! Pasirinkite:")
 
 class KryziukaiNuliukai:
     def __init__(self):
@@ -71,6 +71,12 @@ def zaidimo_eiga():
         if zaidimas.dabartinis_laimetojas:
             print(f'{zaidimas.dabartinis_laimetojas} laimejo!')
             zaidimas.spausdinti_lenta()
+            pasirinkimas = input("Ar norite baigti zaidimas? Spauskite '0' jei taip, arba '1 jeigu norite zaisti is naujo. ")
+            if pasirinkimas == '0':
+                print("Zaidimas baigtas.")
+                exit()
+            else:
+                pradeti_zaidima()
             break
 
         dabartinis_zaidejas = O_zaidejas if dabartinis_zaidejas == X_zaidejas else X_zaidejas
@@ -80,16 +86,16 @@ def zaidimo_eiga():
         baigti_zaidima()
 
 def pradeti_zaidima():
-    pasirinkimas = input("Ar norite pradeti žaidima? Spauskite '1' jei taip, arba bet koki kita klavisa jei ne, spauskite 0: ")
+    pasirinkimas = input("Ar norite pradeti zaidima? Spauskite '1' jei taip, arba '0' norint baigti zaidima.: ")
     if pasirinkimas == '1':
         zaidimo_eiga()
     elif pasirinkimas == '0':
-        print("Žaidimas nepradėtas.")
+        print("Zaidimas nepradėtas.")
     else:
         print("Netinkamas pasirinkimas.")
 
 def baigti_zaidima():
-    pasirinkimas = input("Ar norite baigti zaidima? Spauskite '0' jei taip, arba bet koki klavisa, jei norite testi: ")
+    pasirinkimas = input("Ar norite baigti zaidima? Spauskite '0' jei taip, arba spauskite '1', kad zaisti is naujo.: ")
     if pasirinkimas == '0':
         print("Zaidimas baigtas.")
         exit()
